@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    puts params
-    lab = params[:lab]
+    lab = params[:lab] || "lab1"
     @filter = Filter.new(params[:harmonics].to_i || 6)
     self.send(lab) if (1..4).map{|i| ["lab",i].join}.include? lab
   end
