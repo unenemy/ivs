@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %title IVS GRIB DMITRIY IO-81m
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #controls
+      %fieldset
+        %legend Комплекс лабораторных работ по курсу "Информационные Вычислительные Системы"
+        .form{:style => "margin:10px 5 10px 0"}
+          = form_tag root_path, :method => :get, :remote => :true do
+            %fieldset
+              %legend Тип фильтра
+              = radio_button_tag :lab, "lab1", params[:lab] == "lab1"
+              = label_tag :lab_lab1, "Фильтр низких частот"                    
+              = radio_button_tag :lab, "lab2", params[:lab] == "lab2"
+              = label_tag :lab_lab2, "Фильтр высоких частот"                   
+              = radio_button_tag :lab, "lab3", params[:lab] == "lab3"
+              = label_tag :lab_lab3, "Полосный фильтр"                         
+              = radio_button_tag :lab, "lab4", params[:lab] == "lab4"
+              = label_tag :lab_lab4, "Режекторный фильтр"
+            %div
+              %legend Количество гармоник
+            %div
+              = text_field_tag :harmonics, 6
+              %br
+              = submit_tag "Обновить"
+    #graphics
+      = yield

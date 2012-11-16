@@ -1,0 +1,7 @@
+#container_signal{:style => "width:100%;height:400px;"}
+#container_fft{:style => "width:100%;height:400px;"}
+:javascript
+  var chart1;
+  var chart2;
+  drawchart(chart1, 'Случайный сигнал', 'container_signal', #{@filter.signal}, #{@filtered}, #{Filter::N});
+  drawchart(chart1, 'Амплитудно-частотная характеристика', 'container_fft', fft(#{@filter.signal}, #{Filter::N}), fft(#{@filtered}, #{Filter::N}));
