@@ -1,1 +1,2 @@
+This is an app for visualizing different filters like low-pass, high-pass filters, etc.
 Working site on heroku: http://ivs-trololo.herokuapp.com
